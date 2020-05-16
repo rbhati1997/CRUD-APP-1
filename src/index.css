@@ -1,0 +1,59 @@
+
+#update {
+    display: none;
+    margin-top: 20px;
+}
+#add {
+    margin-top: 20px; 
+}
+
+.form_div {
+	border: solid black;
+	border-width: 1px;
+	margin-top: 50px;
+	margin-bottom: 50px;
+	padding-top: 500;
+	height: 190px;
+	width: 450px;
+}
+
+.table_div {
+  width: 600px;
+  margin-left: 350px;
+
+}
+
+.name_div {
+	margin-top: 15px;
+}
+.btn_div {
+	margin-bottom: 5px;
+}
+input {
+
+  background-color: #3CBC8D;
+  color: white;
+}
+#name_input {
+  margin-left: 85px;
+}
+#email_input {
+  margin-left: 90px;
+}
+#contact_input {
+  margin-left: 15px;
+}
+.edit_btn {
+  height: 35px;
+  width: 50px;
+  margin-left: 15px;
+
+}
+.delete_btn {
+  height: 35px;
+  width: 65px;
+  margin-left: 5px;
+}
+.header_div {
+  margin-left: 600px;
+}
