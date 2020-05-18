@@ -19,8 +19,6 @@
 
 .table_div {
   width: 600px;
-  margin-left: 350px;
-
 }
 
 .name_div {
@@ -55,5 +53,6 @@ input {
   margin-left: 5px;
 }
 .header_div {
-  margin-left: 600px;
+  text-align: center;
+  border: 3px solid gray;
 }

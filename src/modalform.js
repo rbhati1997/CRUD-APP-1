@@ -36,10 +36,13 @@ class ModalForm extends React.Component {
     if (name === "" || email==="" || contact_number==="") {
       alert("Please fill all fields.")
     }
+    else if (!name.match(/^[a-zA-Z]+$/)){
+      alert("Your name must be a string.");
+    }        
     else if (!Number(contact_number) && contact_number !== "" ) {
       alert("Your contact_number must be a number.");
     }
-    else if (contact_number.length < 10 || contact_number.length > 10) {
+    else if (contact_number.length < 10 ) {
       alert("Contact number must contain 10 digits.")
     }
     else if(!pattern.test(email) || email ==="") {
@@ -69,7 +72,7 @@ class ModalForm extends React.Component {
       contact_number:""
     })
     document.getElementById("add").style.display = "block";
-    document.getElementById("update").style.display = "block";
+    document.getElementById("update").style.display = "none";
   }
 
   Edit(event){
@@ -191,8 +194,6 @@ class ModalForm extends React.Component {
             </form>
           </div>
 
-        </center>
-
         <div className="table_div">
           <Table striped bordered hover variant="dark">
             <thead>
@@ -209,7 +210,7 @@ class ModalForm extends React.Component {
             </tbody>
           </Table>
         </div>
-
+        </center>
       </div>
     )
   }
