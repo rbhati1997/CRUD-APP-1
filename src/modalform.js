@@ -77,7 +77,12 @@ class ModalForm extends React.Component {
     var id = event.target.id;
     var arrInstance = this.state.dataArr;
     arrInstance.splice(id, 1)
-    this.setState({ update: false })
+    this.setState({
+        update: false,
+        name: "",
+        email: "",
+        contact_number: "",
+        edit1:false })
   }
 
   Edit = event => {
@@ -193,7 +198,7 @@ class ModalForm extends React.Component {
                 <label>Contact Number :</label>
                 <input type="text" name='contact_number' id="contact_input" placeholder="Enter Contact Number" value={this.state.contact_number} onChange={this.onChangeHandler} />
               </div>
-              <Button variant="primary" id="add" onClick={this.AddDataHandler} >Submmit</Button>
+              <Button variant="primary" id="add" onClick={this.AddDataHandler} >Submit</Button>
 
             </form>
           </div>
