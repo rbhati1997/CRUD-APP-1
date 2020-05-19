@@ -6,7 +6,6 @@
 #add {
     margin-top: 20px; 
 }
-
 .form_div {
 	border: solid black;
 	border-width: 1px;
@@ -16,11 +15,9 @@
 	height: 190px;
 	width: 450px;
 }
-
 .table_div {
   width: 600px;
 }
-
 .name_div {
 	margin-top: 15px;
 }
@@ -28,9 +25,7 @@
 	margin-bottom: 5px;
 }
 input {
-
-  background-color: #3CBC8D;
-  color: white;
+  color: black;
 }
 #name_input {
   margin-left: 85px;
@@ -44,8 +39,7 @@ input {
 .edit_btn {
   height: 35px;
   width: 50px;
-  margin-left: 15px;
-
+  margin-left: 5px;
 }
 .delete_btn {
   height: 35px;
