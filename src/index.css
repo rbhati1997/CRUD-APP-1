@@ -1,28 +1,27 @@
 
 #update {
-    display: none;
     margin-top: 20px;
 }
 #add {
     margin-top: 20px; 
 }
 .form_div {
-	border: solid black;
-	border-width: 1px;
-	margin-top: 50px;
-	margin-bottom: 50px;
-	padding-top: 500;
-	height: 190px;
-	width: 450px;
+  border: solid black;
+  border-width: 1px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  padding-top: 500;
+  height: 190px;
+  width: 450px;
 }
 .table_div {
   width: 600px;
 }
 .name_div {
-	margin-top: 15px;
+  margin-top: 15px;
 }
 .btn_div {
-	margin-bottom: 5px;
+  margin-bottom: 5px;
 }
 input {
   color: black;
@@ -39,7 +38,7 @@ input {
 .edit_btn {
   height: 35px;
   width: 50px;
-  margin-left: 5px;
+  margin-left: 15px;
 }
 .delete_btn {
   height: 35px;

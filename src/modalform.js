@@ -13,7 +13,8 @@ class ModalForm extends React.Component {
       dataArr: [],
       created: false,
       update: false,
-      edit: true
+      edit: true,
+      edit1: false,
     }
 
   }
@@ -28,6 +29,7 @@ class ModalForm extends React.Component {
     let name = this.state.name
     let email = this.state.email
     let contact_number = this.state.contact_number
+    var arryInstance = this.state.dataArr;
     var numbers = /^[0-9]+$/;
     var pattern = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);
     if (name === "" || email==="" || contact_number==="") {
@@ -44,17 +46,29 @@ class ModalForm extends React.Component {
     }
     else if (contact_number.length < 10 || contact_number.length >= 11) {
       alert("Contact number must contain 10 digits.")
-    } 
-    else {
-      var user_dict = { "name": name, "email": email, "contact_number": contact_number, edit: true }
-      var arrInstance = this.state.dataArr;
-      arrInstance.push(user_dict)
+    }
+    else if (this.state.edit1 === true) {
+      arryInstance[getId].name = this.state.name;
+      arryInstance[getId].email = this.state.email;
+      arryInstance[getId].contact_number = this.state.contact_number;
+      arryInstance[getId].edit = true
       this.setState({
-        dataArr: arrInstance,
+      dataArr: arryInstance,
+      name: "",
+      email:"",
+      contact_number:"",
+      edit1:false,
+    })
+    }
+    else {
+      var user_dict = { "name": name, "email": email, "contact_number": contact_number, edit: true,}
+      arryInstance.push(user_dict)
+      this.setState({
+        dataArr: arryInstance,
         name: "",
         email: "",
         contact_number: "",
-        update: false
+        
       })
     }
   }
@@ -75,25 +89,26 @@ class ModalForm extends React.Component {
       name: this.state.dataArr[event.target.id].name,
       email: this.state.dataArr[event.target.id].email,
       contact_number: this.state.dataArr[event.target.id].contact_number,
-      update: true
+      update: true,
+      edit1: true,
     })
   }
 
 
-  UpdateDataHandler = event => {
-    var arryInstance = this.state.dataArr;
-    arryInstance[getId].name = this.state.name;
-    arryInstance[getId].email = this.state.email;
-    arryInstance[getId].contact_number = this.state.contact_number;
-    arryInstance[getId].edit = true
-    this.setState({
-      dataArr: arryInstance,
-      name: "",
-      email: "",
-      contact_number: "",
-      update: false
-    })
-  }
+  // UpdateDataHandler = event => {
+  //   var arryInstance = this.state.dataArr;
+  //   arryInstance[getId].name = this.state.name;
+  //   arryInstance[getId].email = this.state.email;
+  //   arryInstance[getId].contact_number = this.state.contact_number;
+  //   arryInstance[getId].edit = true
+  //   this.setState({
+  //     dataArr: arryInstance,
+  //     name: "",
+  //     email: "",
+  //     contact_number: "",
+  //     update: false
+  //   })
+  // }
 
   //............I try onSubmit in form but it refreshing page automatically..............//
 
@@ -178,12 +193,7 @@ class ModalForm extends React.Component {
                 <label>Contact Number :</label>
                 <input type="text" name='contact_number' id="contact_input" placeholder="Enter Contact Number" value={this.state.contact_number} onChange={this.onChangeHandler} />
               </div>
-
-              {this.state.update ?
-                < Button variant="primary" id="update" onClick={this.UpdateDataHandler} >Update Data</Button>
-                :
-                <Button variant="primary" id="add" onClick={this.AddDataHandler} >Add Data</Button>
-              }
+              <Button variant="primary" id="add" onClick={this.AddDataHandler} >Submmit</Button>
 
             </form>
           </div>
@@ -210,55 +220,5 @@ class ModalForm extends React.Component {
   }
 }
 
-
-
-
-// 
-// function ModalForm() {
-//   const [show, setShow] = useState(false);
-
-//   const handleClose = () => setShow(false);
-//   const handleShow = () => setShow(true);
-
-//   const mySubmitHandler = (event) => {
-//     event.preventDefault();
-//     alert("You are submitting ");
-//   }
-
-//   const myChangeHandler = (event) => {
-//     // let nam = event.target.name;
-//     // let val = event.target.value;
-//     // this.setState({[nam]: val});
-//   }
-
-//   return (
-//     <>
-//       <Button variant="primary" onClick={handleShow}>
-//         Add User
-//       </Button>
-
-//       <Modal show={show} onHide={handleClose}>
-//         <Modal.Header closeButton>
-//           <Modal.Title>Fill User Detail</Modal.Title>
-//         </Modal.Header>
-//         <Modal.Body>        
-//           <form onSubmit={mySubmitHandler}>
-//             <input type="text"  id='name' placeholder="name" />
-//             <input type="text"  id='email_id' placeholder="email_id" />
-//             <input type="text"  id='contact_number' placeholder="contact number" />
-//           <Modal.Footer>
-//             <Button variant="secondary" onClick={handleClose}>
-//               Close
-//             </Button>
-//             <input type='submit' value='Add data'/>
-//           </Modal.Footer>  
-//           </form>
-//         </Modal.Body>
-
-
-//       </Modal>
-//     </>
-//   );
-// }
 
 export default ModalForm
